@@ -33,8 +33,6 @@ client.on("message",(topic,message)=>{
             }
           }
 
-console.log("this is a test")
-
 function endBlink() { //function to stop blinking
     clearInterval(blinkInterval); // Stop blink intervals
     LED.writeSync(0); // Turn LED off
