@@ -3,6 +3,14 @@ var Gpio = require('onoff').Gpio;
 var LED = new Gpio(4, 'out');
 var my_topic_name = 'ezzaffa88/feeds/button';
 var my_topic_name2 = 'ezzaffa88/feeds/led';
+//serial port intilization
+const SerialPort = require('serialport')
+const Readline = require('@serialport/parser-readline')
+const port = new SerialPort('/dev/ttyUSB0', { baudRate: 256000 })
+
+const parser = new Readline()
+port.pipe(parser)
+//  </serial port init >
 
 var client = mqtt.connect("https://io.adafruit.com",{
     port : 1883,
@@ -32,7 +40,6 @@ client.on("message",(topic,message)=>{
               LED.writeSync(0); //set pin state to 0 (turn LED off)
             }
           }
-console.log("so")
 function endBlink() { //function to stop blinking
     clearInterval(blinkInterval); // Stop blink intervals
     LED.writeSync(0); // Turn LED off

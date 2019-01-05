@@ -8,10 +8,11 @@
     "start": " node app.js"
   },
   "author": "Sofiene Rezgui 2018",
-  "mail":"so1fien@hotmail.com",
-   "license": "ISC",
+  "mail": "so1fien@hotmail.com",
+  "license": "ISC",
   "dependencies": {
     "mqtt": "^2.18.8",
-    "onoff": "^3.2.2"
+    "onoff": "^3.2.2",
+    "serialport": "^7.1.1"
   }
 }

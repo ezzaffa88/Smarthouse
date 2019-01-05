@@ -2,8 +2,9 @@
 //$ npm install serialport
 //Otherwise, Error: Cannot find module 'serialport' will reported
 
-var SerialPort = require("serialport").SerialPort
-var serialPort = new SerialPort('/dev/ttyACM0', 
+const SerialPort = require("serialport").SerialPort
+const serialport = require("serialport")
+const serialPort =  SerialPort('/dev/ttyUSB0', 
     {   baudrate: 9600,
         dataBits: 8,
         parity: 'none',
