@@ -13,7 +13,7 @@ const parser = new Readline()
 port.pipe(parser)
 //  </serial port init >
 //on serial port messages
-let  message = null;
+let  senzValue = null;
 
     parser.on('data', line =>{
          senzValue = line
@@ -35,9 +35,10 @@ client.on('connect',()=>{
     client.subscribe(my_topic_name3);
     console.log("connected to :"+my_topic_name3);
     //on connect start sending senzor value
+    console.log("test from on connect Sent to server "+senzValue)
     setInterval(()=>{
         client.publish('ezzaffa88/feeds/Senzor',senzValue)
-
+            console.log("Sent to server "+senzValue)
     },1000)
 })
 // if error connecting to cloud 
